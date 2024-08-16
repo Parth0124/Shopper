@@ -6,14 +6,14 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const port = process.env.PORT || 4000;
+const dotenv = require("dotenv")
 
 app.use(express.json());
+dotenv.config()
 app.use(cors());
 
 // Database Connection With MongoDB
-mongoose.connect(
-  "mongodb+srv://abhangparth:ParthECommerce2@ecommerce2.ylz5l.mongodb.net/Shopper?retryWrites=true&w=majority&appName=ECommerce2"
-);
+mongoose.connect(process.env.MONGO_URL);
 
 // paste your mongoDB Connection string above with password
 // password should not contain '@' special character
